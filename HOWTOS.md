@@ -1,4 +1,4 @@
-# Docker](https://www.docker.com/) HOW-TO's
+# [Docker](https://www.docker.com/) HOW-TO's
 
 ## Running a command in interactive mode on a container
 ```
@@ -65,3 +65,16 @@ CMD ["/opt/wildfly/bin/standalone.sh", "-c", "standalone-custom.xml", "-b", "0.0
 $ docker build -t image-name .
 ```
 **Note:** **.** indicates that the Dockerfile is in the current directory.
+
+## Finding a container IP address
+```
+$ docker ps
+$ docker inspect [container name or ID]
+```
+**Note:** Look for IPAddress on the container JSON data.
+
+## Port forwarding
+```
+$ docker run -it --rm -p 8080:8080 jboss/wildfly
+```
+**Note:** You may add as many *-p* parameters as needed.
